@@ -90,7 +90,7 @@
         <repository>
             <id>github</id>
             <name>GitHub OWNER Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/alejandro.md/spi-keycloak-azurekeyvault</url>
+            <url>https://maven.pkg.github.com/amd989/keycloak-spi-azurekeyvault</url>
         </repository>
     </distributionManagement>
 </project>
