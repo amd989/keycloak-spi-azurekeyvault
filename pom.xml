@@ -6,13 +6,39 @@
 
     <groupId>md.alejandro</groupId>
     <artifactId>spi-keycloak-azurekeyvault</artifactId>
-    <version>1.0.0</version>
+    <version>26.1.2</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>11</maven.compiler.release>
-        <version.org.keycloak>19.0.1</version.org.keycloak>
+        <version.org.keycloak>26.1.2</version.org.keycloak>
         <version.org.jboss.logging>3.4.1.Final</version.org.jboss.logging>
+        <version.azure.identity>1.12.2</version.azure.identity>
+        <version.azure.keyvault>4.8.4</version.azure.keyvault>
+        <version.netty>4.1.110.Final</version.netty>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.azure</groupId>
+                <artifactId>azure-identity</artifactId>
+                <version>${version.azure.identity}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.azure</groupId>
+                <artifactId>azure-security-keyvault-secrets</artifactId>
+                <version>${version.azure.keyvault}</version>
+            </dependency>
+            <!-- Force consistent Netty versions -->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-bom</artifactId>
+                <version>${version.netty}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 
     <build>
@@ -47,6 +73,16 @@
                     </execution>
                 </executions>
             </plugin>
+
+                <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.8.1</version>
+            </plugin>
         </plugins>
     </build>
 
@@ -76,12 +112,12 @@
         <dependency>
             <groupId>com.azure</groupId>
             <artifactId>azure-security-keyvault-secrets</artifactId>
-            <version>4.5.4</version>
+            <version>${version.azure.keyvault}</version>
         </dependency>
         <dependency>
             <groupId>com.azure</groupId>
             <artifactId>azure-identity</artifactId>
-            <version>1.8.0</version>
+            <version>${version.azure.identity}</version>
         </dependency>
 
     </dependencies>
