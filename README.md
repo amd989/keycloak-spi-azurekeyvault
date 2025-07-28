@@ -1,6 +1,6 @@
 # keycloak-spi-azurekeyvault
 
-This is an example of the implementation of a Service Provider Interface (SPI) for keycloak to enable integration with [Azure Key Vault](https://azure.microsoft.com/en-us/products/key-vault). This is based on the excellent work done [here](|https://github.com/zene22/keycloak-spi-example) 
+This is an example of the implementation of a Service Provider Interface (SPI) for keycloak to enable integration with [Azure Key Vault](https://azure.microsoft.com/en-us/products/key-vault). This is based on the excellent work done [here](https://github.com/zene22/keycloak-spi-example) 
 
 ## Use-Case
 
@@ -19,7 +19,7 @@ More information can be found here:
 ## Building the Module from scratch
 
 This is a Java maven project, so just execute `mvn clean package`.
-This builds a `spi-keycloak-azurekeyvault-1.0.0.jar` and a  `spi-keycloak-azurekeyvault-1.0.0-assemblyModule.zip` in the target directory.
+This builds a `spi-keycloak-azurekeyvault-26.1.2.jar` and a  `spi-keycloak-azurekeyvault-26.1.2-assemblyModule.zip` in the target directory.
 
 Follow with `mvn dependency:copy-dependencies` to copy all required dependencies to the `target/dependencies` folder. 
 
@@ -53,7 +53,7 @@ docker-compose.yml
 ```yaml
 services:      
   keycloak:
-    image:  quay.io/keycloak/keycloak:19.0.1
+    image:  quay.io/keycloak/keycloak:26.1.2
     command: --verbose start --optimized --spi-vault-azure-key-vault-name=<KEY VAULT NAME>
     environment:
       # Azure SP Auth Example
